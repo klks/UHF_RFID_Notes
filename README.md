@@ -17,6 +17,9 @@ On EPC Gen 2 Tags](https://www.rfidjournal.com/wp-content/uploads/2020/01/464.pd
 for use with the RAIN Application 
 Family Identifier (AFI)](https://rainrfid.org/wp-content/uploads/2022/05/RAIN-Alliance-Tag-Encoding-Guideline.pdf)
 
+# Other Links
+- [Monza 4 UMI Bit Compatibility Issues Field Note](https://support.impinj.com/hc/en-us/articles/205798798-Monza-4-UMI-Bit-Compatibility-Issues-Field-Note)
+
 # Other github pages
 - https://github.com/zaphoxx/zaphoxx-uhf-rfid/
 - https://github.com/nkargas/Gen2-UHF-RFID-Reader
