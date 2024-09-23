@@ -60,6 +60,7 @@
 
 ## ES-F3105U / UCM601
 ### Reader Image
+<img src="./imgs/READERS/ES-F3105U-1.jpg" width="400">
 
 ### Software Image
 <img src="./imgs/READERS/ES-F3105U-Software-1.png" width="400">
