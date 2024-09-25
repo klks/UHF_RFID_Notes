@@ -3,6 +3,7 @@
 1. [YRM100](#yrm100)
 1. [ES-F3105U / UCM601](#es-f3105u--ucm601)
 1. [CF601](#cf601)
+1. [WYUAN T50 UHF]
 
 ## LJYZN-105
 ### Reader Image
@@ -110,3 +111,8 @@
 | NXP Read Protect | ??? |
 | SM7 | No |
 | Fudan GB Encryption | ??? |
+
+## WYUAN T50 UHF (USB-C Keyboard Emulator)
+### Reader Image
+<img src="./imgs/READERS/WYUAN-T50-UHF-Front.jpg" width="400">
+<img src="./imgs/READERS/WYUAN-T50-UHF-Back.jpg" width="400"><br>
