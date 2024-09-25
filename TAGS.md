@@ -29,6 +29,16 @@ Notes :
 - [See Datasheet](https://www.emmicroelectronic.com/sites/default/files/products/datasheets/4325-ds_0.pdf)
 
 ## Alien Technology Tags
+<img src="./imgs/TAGS/Alien-H10-1.jpg" width="400"><br>
+MDID / TMN : 003 / 813 (Higgs 10)<br>
+Notes :
+
+- TID : 14 Words
+- EPC : 8 Words
+- USER : 2 Words
+---
+<br>
+
 <img src="./imgs/TAGS/Alien-H9-1.jpg" width="400">
 <img src="./imgs/TAGS/Alien-H9-2.jpg" width="400">
 <img src="./imgs/TAGS/Alien-H9-3.jpg" width="400"><br>
@@ -43,7 +53,9 @@ Notes :
 
 <img src="./imgs/TAGS/Alien-H3-1.jpg" width="200">
 <img src="./imgs/TAGS/Alien-H3-2.jpg" width="300">
-<img src="./imgs/TAGS/Alien-H3-3.jpg" width="300"><br>
+<img src="./imgs/TAGS/Alien-H3-3.jpg" width="300">
+<img src="./imgs/TAGS/Alien-H3-4.jpg" width="400">
+<img src="./imgs/TAGS/Alien-H3-5.jpg" width="400"><br>
 MDID / TMN : 003 / 412 (Higgs 3)<br>
 Notes :
 
@@ -113,7 +125,8 @@ Notes :
 <img src="./imgs/TAGS/NXP-UCODE9-2.jpg" width="400">
 <img src="./imgs/TAGS/NXP-UCODE9-3.jpg" width="400">
 <img src="./imgs/TAGS/NXP-UCODE9-4.jpg" width="400">
-<img src="./imgs/TAGS/NXP-UCODE9-5.jpg" width="400"><br>
+<img src="./imgs/TAGS/NXP-UCODE9-5.jpg" width="400">
+<img src="./imgs/TAGS/NXP-UCODE9-6.jpg" width="400"><br>
 MDID / TMN : 006 / 995 (UCODE 9)<br>
 Notes :
 
@@ -137,7 +150,11 @@ Notes :
 <img src="./imgs/TAGS/NXP-UCODE8-10.jpg" width="400">
 <img src="./imgs/TAGS/NXP-UCODE8-11.jpg" width="400">
 <img src="./imgs/TAGS/NXP-UCODE8-12.jpg" width="400">
-<img src="./imgs/TAGS/NXP-UCODE8-13.jpg" width="400"><br>
+<img src="./imgs/TAGS/NXP-UCODE8-13.jpg" width="400">
+<img src="./imgs/TAGS/NXP-UCODE8-14.jpg" width="400">
+<img src="./imgs/TAGS/NXP-UCODE8-15.jpg" width="400">
+<img src="./imgs/TAGS/NXP-UCODE8-16.jpg" width="400">
+<img src="./imgs/TAGS/NXP-UCODE8-17.jpg" width="400"><br>
 MDID / TMN : 006 / 894 (UCODE 8)<br>
 Notes :
 
@@ -204,6 +221,30 @@ Notes :
 - TID : 6 Words
 - EPC : 10 Words
 - USER : 2 Words
+
+## Kiloway
+<img src="./imgs/TAGS/Kiloway-012-1.jpg" width="400">
+<img src="./imgs/TAGS/Kiloway-012-2.jpg" width="400"><br>
+MDID / TMN : 01D / 012 (KX2005X)<br>
+Notes :
+
+- TID : 12 Words
+- EPC : 120 Words
+- USER : 0 Words
+- Tag has a unique property on tag where once a bit is flipped on, it cannot be turned off. The company calls this OTP Memory
+- Tag has an LED that can be triggered by reading WORD 4 of RFU
+---
+<br>
+
+<img src="./imgs/TAGS/Kiloway-KX2005X-BL-1.jpg" width="400"><br>
+MDID / TMN : 01D / 016 (KX2005X-BL)<br>
+Notes :
+
+- TID : 12 Words
+- EPC : 120 Words
+- USER : 82 Words
+- Tag has a unique property on tag where once a bit is flipped on, it cannot be turned off. The company calls this OTP Memory
+- Tag has an LED that can be triggered by reading WORD 4 of RFU
 
 ## Other Special Tags
 <img src="./imgs/TAGS/Other-Special-1.jpg" width="400"><br>
