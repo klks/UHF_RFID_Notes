@@ -116,3 +116,6 @@
 ### Reader Image
 <img src="./imgs/READERS/WYUAN-T50-UHF-Front.jpg" width="400">
 <img src="./imgs/READERS/WYUAN-T50-UHF-Back.jpg" width="400"><br>
+
+### Notes
+- Uses the MagicRF M100 chip
