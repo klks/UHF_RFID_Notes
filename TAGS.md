@@ -6,6 +6,7 @@
 1. [NPX Tags](#nxp-tags)
 1. [Quanray Electronics Tags](#quanray-electronics)
 1. [Shanghai Fudan Microelectronics Group](#shanghai-fudan-microelectronics-group)
+1. [Kiloway](#kiloway)
 1. [Other Special Tags](#other-special-tags)
 
 ## General Notes
