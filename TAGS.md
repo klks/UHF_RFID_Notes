@@ -241,7 +241,7 @@ MDID / TMN : 01D / 016 (KX2005X-BL)<br>
 Notes :
 
 - TID : 12 Words
-- EPC : 120 Words
+- EPC : 140 Words
 - USER : 82 Words
 - Tag has a unique property on tag where once a bit is flipped on, it cannot be turned off. The company calls this OTP Memory
 - Tag has an LED that can be triggered by reading WORD 4 of RFU
