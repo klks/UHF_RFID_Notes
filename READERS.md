@@ -3,7 +3,7 @@
 1. [YRM100](#yrm100)
 1. [ES-F3105U / UCM601](#es-f3105u--ucm601)
 1. [CF601](#cf601)
-1. [WYUAN T50 UHF]
+1. [WYUAN T50 UHF](#wyuan-t50-uhf-usb-c-keyboard-emulator)
 
 ## LJYZN-105
 ### Reader Image

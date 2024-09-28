@@ -1,4 +1,5 @@
 # Table of Contents
+1. [Common Cards](#common-cards)
 1. [TID Changeable Tags](#tid-changeable-tags)
 1. [EM Microelectronic](#em-microelectronic)
 1. [Alien Tags](#alien-tags)
@@ -12,6 +13,9 @@
 ## General Notes
 - The shape of the tag does not determine what kind of tags they are
 - The type of tags can be determined by the MDID/TMN stored in the tags TID
+
+## Common Cards
+<img src="./imgs/TAGS/common_cards.png" width=800><br>
 
 ## TID Changeable Tags
 <img src="./imgs/TAGS/TID-Changeable-1.jpg" width="400"><br>
