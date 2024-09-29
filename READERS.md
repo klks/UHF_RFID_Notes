@@ -86,8 +86,10 @@
 | NXP Config | No |
 | NXP EAS | No |
 | NXP Read Protect | No |
-| SM7 | Yes |
+| SM7 | Yes*1 |
 | Fudan GB Encryption | Yes |
+
+*1 - API is exposed in software but firmware (depending on reader) may not respond to the command. Implementation in documentation lists this as optional.
 
 ## CHAFON CF601
 ### Reader Image
