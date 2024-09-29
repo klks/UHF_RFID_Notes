@@ -22,6 +22,7 @@
 - [SDK](./SDKs/LJYZN-105/)
 
 ### Notes
+- Serial protocol starts does not start with a fixed header
 - This reader is also commonly rebranded and sold under different names. It can be easily identified by the software used to communicate with it.
 - Supports reading ISO18000-6B cards
 - Known limitations
@@ -36,7 +37,7 @@
 | SM7 | No |
 | Fudan GB Encryption | No |
 
-## YRM100
+## YRM100 / MagicRF (Q)M100
 ### Reader Image
 <img src="./imgs/READERS/YRM100-front.jpg" alt="drawing" width="400">
 <img src="./imgs/READERS/YRM100-back.jpg" alt="drawing" width="400"><br>
@@ -51,6 +52,7 @@
 - [SDK](./SDKs/YRM100/)
 
 ### Notes
+- Serial protocol starts with 0xBB
 | Custom Tag Features | Supported |
 | --- | :---: |
 | MonzaQT | Yes |
@@ -77,6 +79,7 @@
 - [SDK](./SDKs/ES-F3105U_UCM601/)
 
 ### Notes
+- Serial protocol starts with 0xA0
 - Known limitations
   - Limited support for custom tag features
 
@@ -106,6 +109,7 @@
 - [SDK](./SDKs/CF601/)
 
 ### Notes
+- Serial protocol starts with 0xCF
 | Custom Tag Features | Supported |
 | --- | :---: |
 | MonzaQT | No |
