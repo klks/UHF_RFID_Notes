@@ -23,6 +23,7 @@
 
 ### Notes
 - This reader is also commonly rebranded and sold under different names. It can be easily identified by the software used to communicate with it.
+- Supports reading ISO18000-6B cards
 - Known limitations
   - Unable to write PC Flags UMI and Toggle
 
