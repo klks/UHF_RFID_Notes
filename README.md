@@ -42,6 +42,9 @@ Family Identifier (AFI)](https://rainrfid.org/wp-content/uploads/2022/05/RAIN-Al
 - https://github.com/MarinYoung4596/RFID-READER
 - https://github.com/schotek/rfid-chafon-cf-ru5102
 - https://github.com/OpenLaundry/wifi-rfid-uhf-reader
+- https://github.com/hex-in/libmagicrf/
+- https://github.com/russss/rust-invelion
+- https://github.com/xinliulab/gr-rfid
 
 # Other interesting links
 - [Monza 4 UMI Bit Compatibility Issues Field Note](https://support.impinj.com/hc/en-us/articles/205798798-Monza-4-UMI-Bit-Compatibility-Issues-Field-Note)
