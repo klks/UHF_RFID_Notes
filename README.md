@@ -3,7 +3,7 @@ A collection of notes on UHF RFID readers, tags, and other resources I've come a
 Pull requests are welcomed.
 
 # More Information
-[TAGS](./TAGS.md)<br>
+[TAGS](./TAGS-ANTENNA.md)<br>
 [READERS](./READERS.md)<br>
 
 # Standards
