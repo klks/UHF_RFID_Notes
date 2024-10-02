@@ -11,8 +11,8 @@
 1. [Other Special Tags](#other-special-tags)
 
 ## General Notes
-- The shape of the tag does not determine what kind of tags they are
-- The type of tags can be determined by the MDID/TMN stored in the tags TID
+- The shape of the antenna in a tag does not determine what kind of chip it contains
+- The type of chip can be determined by the MDID/TMN stored in the tags TID
 
 ## Common Cards
 <img src="./imgs/TAGS/common_cards.png" width=800><br>
