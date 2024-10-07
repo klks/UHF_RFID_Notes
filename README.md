@@ -10,7 +10,7 @@ Pull requests are welcomed.
 - [EPC Tag Data Standard (TDS)](https://www.gs1.org/standards/tds)
 - [EPC UHF Gen2 Air Interface Protocol](https://www.gs1.org/standards/rfid/uhf-air-interface-protocol)
 
-# Papers
+# Papers / Articles
 - [Understanding the Control Information 
 On EPC Gen 2 Tags](https://www.rfidjournal.com/wp-content/uploads/2020/01/464.pd)
 - [RAIN Alliance Tag Encoding Guideline 
@@ -18,6 +18,7 @@ for use with the RAIN Application
 Family Identifier (AFI)](https://rainrfid.org/wp-content/uploads/2022/05/RAIN-Alliance-Tag-Encoding-Guideline.pdf)
 - [Simple Low Cost Open Source UHF RFID Reader](https://nicolas-barbot.ovh/wiki/index.php?title=Simple_Low_Cost_Open_Source_UHF_RFID_Reader) [[GitHub](https://github.com/nicolas-barbot/SDR_UHF_RFID_reader)]
 - [Simple Open-Source UHF RFID Tag Platform](https://people.ece.uw.edu/nikitin_pavel/papers/RFID_2023_tag.pdf) [[GitHub](https://github.com/nicolas-barbot/SDR_UHF_RFID_tag)]
+- [UHF RFID tag security for automatic vehicle identification](https://www.nedapidentification.com/insights/uhf-rfid-tag-security-for-automatic-vehicle-identification/)
 
 # Other github pages
 - https://github.com/zaphoxx/zaphoxx-uhf-rfid/
