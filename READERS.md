@@ -53,6 +53,7 @@
 
 ### Notes
 - Serial protocol starts with 0xBB
+
 | Custom Tag Features | Supported |
 | --- | :---: |
 | MonzaQT | Yes |
@@ -110,6 +111,7 @@
 
 ### Notes
 - Serial protocol starts with 0xCF
+
 | Custom Tag Features | Supported |
 | --- | :---: |
 | MonzaQT | No |
