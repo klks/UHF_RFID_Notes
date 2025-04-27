@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RFID_Reader_Com</name>
+    </assembly>
+    <members>
+        <member name="T:RFID_Reader_Com.byteArrEventArgs">
+            <summary>
+            It Extends from EventArgs, Data is byte[] type
+            </summary>
+        </member>
+        <member name="M:RFID_Reader_Com.byteArrEventArgs.#ctor(System.Byte[])">
+            <summary>
+            Constructor, build a ByteArrEventArgs from byte[]
+            </summary>
+            <param name="byteArr">Data</param>
+        </member>
+        <member name="P:RFID_Reader_Com.byteArrEventArgs.Data">
+            <summary>
+            ByteArrEventArgs Data Property
+            </summary>
+        </member>
+        <member name="T:RFID_Reader_Com.Sp">
+            <summary>
+            Serial Port Class.
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Com.Sp.ComDevice">
+            <summary>
+            A Instance Of SerialPort Class.
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Com.Sp.Listening">
+            <summary>
+            Indicate if the Serial Port is doing some invoked operation
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Com.Sp.Closing">
+            <summary>
+            Is the Port Closing
+            </summary>
+        </member>
+        <member name="M:RFID_Reader_Com.Sp.GetInstance">
+            <summary>
+            Return a Single Instance of Sp.
+            </summary>
+            <returns>Instance of Sp</returns>
+        </member>
+        <member name="M:RFID_Reader_Com.Sp.GetPortNames">
+            <summary>
+            Get all valid Serial Ports Names in System
+            </summary>
+            <returns>all valid Serial Ports Names</returns>
+        </member>
+        <member name="M:RFID_Reader_Com.Sp.Config(System.String,System.Int32,System.IO.Ports.Parity,System.Int32,System.IO.Ports.StopBits)">
+            <summary>
+            Config the Serial Port
+            </summary>
+            <param name="port">Port Name(COM1,COM2...)</param>
+            <param name="baudrate">Baudrate</param>
+            <param name="p">Parity</param>
+            <param name="databits">databits(8,9,10)</param>
+            <param name="s">StopBits</param>
+        </member>
+        <member name="M:RFID_Reader_Com.Sp.Open">
+            <summary>
+            Open the Serial Port
+            </summary>
+            <returns>return false if Open Failed, else true</returns>
+        </member>
+        <member name="M:RFID_Reader_Com.Sp.Close">
+            <summary>
+            Close Serial Port
+            </summary>
+            <returns>return false if Close Failed, else true</returns>
+        </member>
+        <member name="M:RFID_Reader_Com.Sp.IsOpen">
+            <summary>
+            Return if the Serial Port Opened
+            </summary>
+            <returns>true if Serial Port Opened, else false</returns>
+        </member>
+        <member name="M:RFID_Reader_Com.Sp.SetCommunicatBaudRate(System.Int32)">
+            <summary>
+            Set the SerialPort BaudRate. This BaudRate will take effect after the 
+            handshake.
+            </summary>
+            <param name="baudrate">baudrate</param>
+        </member>
+        <member name="M:RFID_Reader_Com.Sp.GetCommunicateBaudRate">
+            <summary>
+            Get the Serial Port BaudRate
+            </summary>
+            <returns>the BaudRate Currently in use</returns>
+        </member>
+        <member name="M:RFID_Reader_Com.Sp.Send(System.String)">
+            <summary>
+            Send Hex Text
+            </summary>
+            <param name="hexText">hexadecimal string</param>
+            <returns>Bytes Number has Sent</returns>
+        </member>
+        <member name="M:RFID_Reader_Com.Sp.DownLoadFW(System.String)">
+            <summary>
+            Download the Firmware of the RFID Chip
+            </summary>
+            <param name="fileName">Firware File Path</param>
+        </member>
+        <member name="E:RFID_Reader_Com.Sp.DataSent">
+            <summary>
+            When a valid Data Sent, this event will be sent.
+            It has a Data Property Contains the Send Byte[].  
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,906 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RFID_Reader_Cmds</name>
+    </assembly>
+    <members>
+        <member name="T:RFID_Reader_Cmds.StrArrEventArgs">
+            <summary>
+            It Extends from EventArgs, Data is string[] type
+            </summary>
+        </member>
+        <member name="M:RFID_Reader_Cmds.StrArrEventArgs.#ctor(System.String[])">
+            <summary>
+            Constructor, build a StrArrEventArgs from string[]
+            </summary>
+            <param name="strArr">Data</param>
+        </member>
+        <member name="P:RFID_Reader_Cmds.StrArrEventArgs.Data">
+            <summary>
+            StrArrEventArgs Data Property
+            </summary>
+        </member>
+        <member name="T:RFID_Reader_Cmds.ReceiveParser">
+            <summary>
+            Parse Serial Port Received Data to a Valid Packet
+            </summary>
+        </member>
+        <member name="M:RFID_Reader_Cmds.ReceiveParser.DataReceived(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
+            <summary>
+            Try to Parse a Valid Packet from Serial Port Received Data
+            It Will Send PacketReceived event When Got a Packet.
+            </summary>
+            <param name="sender">usually is a SerialPort.DataReceived</param>
+            <param name="e">SerialDataReceivedEventArgs</param>
+        </member>
+        <member name="E:RFID_Reader_Cmds.ReceiveParser.PacketReceived">
+            <summary>
+            When a valid Packet Got, this event will be sent
+            </summary>
+        </member>
+        <member name="T:RFID_Reader_Cmds.Commands">
+            <summary>
+            This Class defines some utility to build packet according to RFID Reader Serial Port 
+            Communication Protocol. 
+            </summary>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.CalcCheckSum(System.String)">
+            <summary>
+            Calculate the checksum of data. It will add all hexadecimal number of data,
+            and only uses the LSB.
+            </summary>
+            <param name="data">data should be hexadecimal format</param>
+            <returns>checksum of data, described in hexadecimal string</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildFrame(System.String)">
+            <summary>
+            Build a whole frame
+            </summary>
+            <param name="data">this should not include checksum </param>
+            <returns>Whole frame. Frame header, ender and checksum will be added
+            automatically. It will insert a space between every two chars. </returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildFrame(System.String,System.String)">
+            <summary>
+            Build a Whole Frame that Doesn't Have Data Field
+            </summary>
+            <param name="msgType">Packet Type</param>
+            <param name="cmdCode">Command Code</param>
+            <returns>Whole frame. Frame header, ender and checksum will be added
+            automatically. It will insert a space between every two chars. </returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildFrame(System.String,System.String,System.String)">
+            <summary>
+            Build a whole frame
+            </summary>
+            <param name="msgType">Packet Type</param>
+            <param name="cmdCode">Command Code</param>
+            <param name="data">Data field</param>
+            <returns>Whole frame. Frame header, ender and checksum will be added
+            automatically. It will insert a space between every two chars. </returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildFrame(System.String,System.String,System.String[])">
+            <summary>
+            Build a whole frame
+            </summary>
+            <param name="msgType">Packet Type</param>
+            <param name="cmdCode">Command Code</param>
+            <param name="dataArr">Data field</param>
+            <returns>Whole frame. Frame header, ender and checksum will be added
+            automatically. It will insert a space between every two chars.</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.AutoAddSpace(System.String)">
+            <summary>
+            Insert a Space Between Every Two Chars
+            </summary>
+            <param name="Str">String that has no spaces</param>
+            <returns>String inserted spaces</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildGetModuleInfoFrame(System.String)">
+            <summary>
+            Build Get Module Information Command Packet
+            </summary>
+            <param name="infoType">Information Type(Hardware version, Software version or Manufacture Information</param>
+            <returns>Get Module Information Command Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildSetRegionFrame(System.String)">
+            <summary>
+            Build set region Packet
+            </summary>
+            <param name="region">Region Code</param>
+            <returns>Set Region Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildSetRfChannelFrame(System.String)">
+            <summary>
+            Build Set RF Channel Packet
+            </summary>
+            <param name="ch">Channel Number</param>
+            <returns>Set RF Channel Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildGetRfChannelFrame">
+            <summary>
+            Build Get RF Channel Packet
+            </summary>
+            <returns>Get RF Channel Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildSetFhssFrame(System.String)">
+            <summary>
+            Build Set HFSS On/Off Packet
+            </summary>
+            <param name="OnOff">SET_ON/SET_OFF</param>
+            <returns>Set HFSS On/Off Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildSetPaAntFrame(System.Int16,System.Byte)">
+            <summary>
+            Build Set Reader Switch Ant
+            </summary>
+            <param name="Ant">Switch Ant</param>
+            <returns>Set Reader Switch Ant Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildGetPaAntFrame">
+            <summary>
+            Build Get Reader Switch Ant
+            </summary>
+            <returns>Get Reader Switch Ant Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildSetPaPowerFrame(System.Int16)">
+            <summary>
+            Build Set PA Power Packet
+            </summary>
+            <param name="powerdBm">dBm * 100, eg. 7.5dBm = 750</param>
+            <returns>Set PA Power Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildGetPaPowerFrame">
+            <summary>
+            Build Get PA Power Packet
+            </summary>
+            <returns>Get PA Power Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildSetCWFrame(System.String)">
+            <summary>
+            Build Set CW On/Off Packet
+            </summary>
+            <param name="OnOff">On("FF")/Off("00")</param>
+            <returns>Set CW On/Off Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildReadSingleFrame">
+            <summary>
+            Build Read Single Tag ID Packet
+            </summary>
+            <returns>Read Single Tag ID Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildReadMultiFrame(System.Int32)">
+            <summary>
+            Build Read Multi Tag ID Packet
+            </summary>
+            <param name="loopNum">Loop Number</param>
+            <returns>Read Multi Tag ID Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildStopReadFrame">
+            <summary>
+            Build Stop Read Multi TAG ID Packet
+            </summary>
+            <returns>Stop Read Multi TAG ID Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildSetQueryFrame(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Build Set Query Parameter Packet
+            </summary>
+            <param name="dr">DR(1 bit)     DR=8(0)、DR=64/3(1)</param>
+            <param name="m">M(2 bit)      M=1(00)、M=2(01)、M=4(10)、M=8(11)</param>
+            <param name="TRext">TRext(1 bit)   no pilot tone(0)、use pilot tone(1)</param>
+            <param name="sel">Sel(2 bit)     ALL(00 01)、~SL(10)、SL(11)</param>
+            <param name="session">Session(2 bit)  S0(00)、S1(01)、S2(10)、S3(11)</param>
+            <param name="target">Target(1 bit)   A(0)、B(1)</param>
+            <param name="q">Q(4 bit)       0-15</param>
+            <returns>Set Query Parameter Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildGetQueryFrame">
+            <summary>
+            Build Get Query Parameter Packet
+            </summary>
+            <returns>Get Query Parameter Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildSetSelectFrame(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Build Set Select Parameter Packet
+            </summary>
+            <param name="target">Target(3 bit)     S0(000)、S1(001)、S2(010)、S3(011)、SL(100)</param>
+            <param name="action">Action(3 bit)    Reference to ISO18000-6C</param>
+            <param name="memBank">Memory bank(2 bit)    RFU(00)、EPC(01)、TID(10)、USR(11)</param>
+            <param name="pointer">Pointer(32 bit)     Start Address</param>
+            <param name="len">Length(8 bit)  </param>
+            <param name="mask">Mask(0-255bit)   Mask Data according to Length</param>
+            <param name="truncated">Truncate(1 bit)   Disable(0)、Enable(1)</param>
+            <returns>Set Select Parameter Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildGetSelectFrame">
+            <summary>
+            Build Get Select Parameter Packet
+            </summary>
+            <returns>Get Select Parameter Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildSetInventoryModeFrame(System.String)">
+            <summary>
+            Build Set Inventory Mode Frame.
+            When set to Mode0, RFID Reader will first send Select command, then begin an
+            Inventory Round. If set to Mode1, it will not. If set to Mode2, it will send Select
+            before all tag operation except single Inventory.
+            </summary>
+            <param name="mode">INVENTORY_MODE0("00")/INVENTORY_MODE1("01")/INVENTORY_MODE2("02")</param>
+            <returns>Set Inventory Mode Frame</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildReadDataFrame(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Build Read Tag Data Packet.
+            </summary>
+            <param name="accessPwd">Access Password. If a tag NOT needs Access, it should be "00 00 00 00".</param>
+            <param name="memBank">Memory Bank, 0x00-RFU,0x01-EPC,0x02-TID,0x03-User</param>
+            <param name="sa">Start Address</param>
+            <param name="dl">Data Length in Words</param>
+            <returns>Read Tag Data Packet.</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildWriteDataFrame(System.String,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Build Write Tag Data Packet
+            </summary>
+            <param name="accessPwd">Access Password. If a tag NOT needs Access, it should be "00 00 00 00".</param>
+            <param name="memBank">Memory Bank, 0x00-RFU,0x01-EPC,0x02-TID,0x03-User</param>
+            <param name="sa">Start Address</param>
+            <param name="dl">Data Length in word</param>
+            <param name="dt">Data to Write. It Should Be "dl" Words</param>
+            <returns>Write Tag Data Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.genLockPayload(System.Byte,System.Byte)">
+            <summary>
+            Generate the lock payload.
+            </summary>
+            <param name="lockOpt">Value from 0 to 3 means 0:unlock, 1:lock, 2:param unlock, 3:perma lock</param>
+            <param name="memSpace">Value from 0 to 4 means 0:Kill password, 1:Access password, 2:EPC memBank, 3:TID memBank, 4:User memBank</param>
+            <returns>lock payload</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildLockFrame(System.String,System.Int32)">
+            <summary>
+            Build Lock Tag Packet
+            </summary>
+            <param name="accessPwd">Access Password. If a tag NOT needs Access, it should be "00 00 00 00".</param>
+            <param name="ld">Lock Payload.It should be 3 bytes, the first 4 bits are not used</param>
+            <returns>Lock Tag Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildKillFrame(System.String,System.Int32)">
+            <summary>
+            Build Kill Tag Packet
+            </summary>
+            <param name="killPwd">Kill Password. If Kill Password is "00 00 00 00", the Kill Operation Will Be ignored By Tag</param>
+            <param name="rfu">RFU(000)/Recomm. If you want to kill a tag, just pass 0 by default.</param>
+            <returns>Kill Tag Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildSetModemParaFrame(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Build Set Modem Parameter Packet
+            </summary>
+            <param name="mixerGain">mixer gain(0-7)</param>
+            <param name="IFAmpGain">IF gain(0-7)</param>
+            <param name="signalThreshold">decode threshold</param>
+            <returns>Set Modem Parameter Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildReadModemParaFrame">
+            <summary>
+            Build Read Modem Parameter Packet
+            </summary>
+            <returns>Read Modem Parameter Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildScanJammerFrame">
+            <summary>
+            Build Scan Jammer Command Packet
+            </summary>
+            <returns>Scan Jammer Command Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildScanRssiFrame">
+            <summary>
+            Build Scan RSSI Command Packet
+            </summary>
+            <returns>Scan RSSI Command Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildIoControlFrame(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Build IO Control Command Packet
+            </summary>
+            <param name="optType">operation type. 0x00：set IO dirction;
+            0x01: set IO Level;
+            0x02: Read IO Level.</param>
+            <param name="ioPort">the IO which will be handled. IO1 - IO4</param>
+            <param name="modeOrLevel">if optType=0x00, set IO mode(0x00 for Input mode, 0x01 for Output mode)
+            if optType=0x01, set IO Level(0x00 for output Low level, 0x01 for output High level</param>
+            <returns>IO Control Command Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildSetReaderEnvModeFrame(System.Byte)">
+            <summary>
+            Build Set Reader Environment Mode Command Packet
+            </summary>
+            <param name="mode">Reader environment mode. 0x01 for Dense Reader mode, 0x00 for High Sensitivity mode</param>
+            <returns>Set Reader Environment Mode Command Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildSaveConfigToNvFrame(System.Byte)">
+            <summary>
+            Build Save Configuration to NV Memory Command Packet
+            </summary>
+            <param name="NVenable">0x01 for Enable NV Configuration. The Reader Will Load the Configuration when Next Power-up.
+            0x00 for Disable NV Configuration. This Setting Will Erase the Exist Configuration!</param>
+            <returns>Save Configuration to NV Memory Command Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildLoadConfigFromNvFrame">
+            <summary>
+            Build Load Configuration From NV Memory Command Packet
+            </summary>
+            <returns>Load Configuration From NV Memory Command Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildSetModuleSleepFrame">
+            <summary>
+            Build Set Module to Sleep Mode Command Packet
+            </summary>
+            <returns>Set Module to Sleep Mode Command Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildSetSleepTimeFrame(System.Byte)">
+            <summary>
+            Build Set Module Sleep Time Command Packet
+            </summary>
+            <param name="time">Idle Time In Minutes.
+            If the module has NO operation after the time, it will go to sleep mode.</param>
+            <returns>Set Module Sleep Time Command Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildInsertRfChFrame(System.Int32,System.Byte[])">
+            <summary>
+            Build Insert RF Channel Command Packet
+            </summary>
+            <param name="channelNum">the Count of Channels Will Be Inserted</param>
+            <param name="channelList">List of All the Channel Index</param>
+            <returns>Insert RF Channel Command Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildNXPChangeConfigFrame(System.String,System.Int32)">
+            <summary>
+            Build Change Config Command Packet for NXP G2X Tags 
+            </summary>
+            <param name="accessPwd">Access Password.</param>
+            <param name="ConfigData">16 bits Config data. The bits to be toggled in the configuration register need to be set to '1'.</param>
+            <returns>Change Config Command Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildNXPReadProtectFrame(System.String,System.Boolean)">
+            <summary>
+            Build ReadProtect/ResetReadProtect Command Packet for NXP G2X Tags 
+            </summary>
+            <param name="accessPwd">Access Password.</param>
+            <param name="isReset">If it is a Reset ReadProtect command, fill true.</param>
+            <returns>ReadProtect/ResetReadProtect Command Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildNXPChangeEasFrame(System.String,System.Boolean)">
+            <summary>
+            Build Change EAS Command Packet for NXP G2X Tags 
+            </summary>
+            <param name="accessPwd">Access Password.</param>
+            <param name="isSet">If uset want to set PSF bit, fill true.</param>
+            <returns>Change EAS Command Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildNXPEasAlarmFrame">
+            <summary>
+            Build EAS Alarm Command Packet for NXP G2X Tags 
+            </summary>
+            <returns>EAS Alarm Command Packet</returns>
+        </member>
+        <member name="M:RFID_Reader_Cmds.Commands.BuildMonzaQTFrame(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Build QT Command Packet for Monza Tags
+            </summary>
+            <param name="accessPwd">Access Password.</param>
+            <param name="isWrite">false: Build QT Read command; true: QT Wrtie command</param>
+            <param name="QT_SR">true: set QT_SR to 1, the tag will reduce range if in or about to be in OPEN or SECURED state;
+            false: set QT_SR to 0, tag does not reduce range</param>
+            <param name="QT_MEM">true: set QT_MEM to 1, the tag will use Public Memory Map;
+            false: set QT_MEM to 0, the tag will use Private Memory Map.</param>
+            <param name="isPersistence">true: write command result to Nonvolatile Memory; false: write to volatile memory.
+            default true.</param>
+            <returns>Monza Tag QT Read or QT Write Command Packet</returns>
+        </member>
+        <member name="T:RFID_Reader_Cmds.Commands.lock_payload_type">
+            <summary>
+            lock payload type, 20 bits in total, high 4 bits are reserved.
+            user can joint the 3 bytes to generate parameter ld for BuildLockFrame function. 
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.Commands.lock_payload_type.byte0">
+            <summary>
+            byte0 of lock payload, high 4 bits are reserved.
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.Commands.lock_payload_type.byte1">
+            <summary>
+            byte1 of lock payload. It is middle 8 bits.
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.Commands.lock_payload_type.byte2">
+            <summary>
+            byte2 of lock payload. It is the lowest 8 bits .
+            </summary>
+        </member>
+        <member name="T:RFID_Reader_Cmds.ConstCode">
+            <summary>
+            defines some constant command and fail code
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FRAME_BEGIN_HEX">
+            <summary>
+            Packet Begin Hex String
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FRAME_END_HEX">
+            <summary>
+            Packet End Hex String
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FRAME_BEGIN_BYTE">
+            <summary>
+            Packet Begin Byte
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FRAME_END_BYTE">
+            <summary>
+            Packet End Byte
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FRAME_TYPE_CMD">
+            <summary>
+            Packet Type : Command
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FRAME_TYPE_ANS">
+            <summary>
+            Packet Type : Answer
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FRAME_TYPE_INFO">
+            <summary>
+            Packet Type ：Message
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_GET_MODULE_INFO">
+            <summary>
+            Command Type : Get Module Information
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_SET_QUERY">
+            <summary>
+            Command Type : Set Query Parameters
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_GET_QUERY">
+            <summary>
+            Command Type : Get Query Parameters
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_INVENTORY">
+            <summary>
+            Command Type : Read Single Tag ID(PC + EPC)
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_READ_MULTI">
+            <summary>
+            Command Type : Read Multiply Tag IDs(PC + EPC)
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_STOP_MULTI">
+            <summary>
+            Command Type : Stop Read Multiply Tag IDs(PC + EPC)
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_READ_DATA">
+            <summary>
+            Command Type : Read Tag Data
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_WRITE_DATA">
+            <summary>
+            Command Type : Write Tag Data
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_LOCK_UNLOCK">
+            <summary>
+            Command Type : Lock/Unlock Tag Memory
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_KILL">
+            <summary>
+            Command Type : Kill Tag
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_SET_REGION">
+            <summary>
+            Command Type : Set Reader RF Region
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_SET_RF_CHANNEL">
+            <summary>
+            Command Type : Set Reader RF Channel
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_GET_RF_CHANNEL">
+            <summary>
+            Command Type : Get Reader RF Channel No.
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_SET_SWITCH_ANT">
+            <summary>
+            Command Type : Set Reader Switch Ant
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_GET_SWITCH_ANT">
+            <summary>
+            Command Type : Get Reader Switch Ant
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_SET_POWER">
+            <summary>
+            Command Type : Set Reader Power Level
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_GET_POWER">
+            <summary>
+            Command Type : Get Reader Power Level
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_SET_FHSS">
+            <summary>
+            Command Type : Set Reader FHSS On/Off
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_SET_CW">
+            <summary>
+            Command Type : Set Reader CW On/Off
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_SET_MODEM_PARA">
+            <summary>
+            Command Type : Set Modem Parameter
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_READ_MODEM_PARA">
+            <summary>
+            Command Type : Read Modem Parameter
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_SET_SELECT_PARA">
+            <summary>
+            Command Type : Set ISO18000-6C Select Command Parameters
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_GET_SELECT_PARA">
+            <summary>
+            Command Type : Get Select Command Parameters
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_SET_INVENTORY_MODE">
+            <summary>
+            Command Type : Set Inventory Mode 
+            (MODE0, Send Select Command Before Each Tag Command)
+            (MODE1, DoNot Send Select Command Before Each Tag Command)
+            (MODE2, Send Select Command Before Tag Commands(Read, Write, Lock, Kill) Except Inventory
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_SCAN_JAMMER">
+            <summary>
+            Command Type : Scan Jammer
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_SCAN_RSSI">
+            <summary>
+            Command Type : Scan RSSI
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_IO_CONTROL">
+            <summary>
+            Command Type : Control IO
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_RESTART">
+            <summary>
+            Command Type : Restart Reader
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_SET_READER_ENV_MODE">
+            <summary>
+            Command Type : Set Reader Mode(Dense Reader Mode or High-sensitivity Mode)
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_INSERT_FHSS_CHANNEL">
+            <summary>
+            Command Type : Insert RF Channel to the FHSS Frequency Look-up Table
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_SLEEP_MODE">
+            <summary>
+            Command Type : Set Reader to Sleep Mode
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_SET_SLEEP_TIME">
+            <summary>
+            Command Type : Set Reader Idle Time, after These Minutes, the Reader Will Go to Sleep Mode 
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_LOAD_NV_CONFIG">
+            <summary>
+            Command Type : Load Configuration From Non-volatile Memory
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_SAVE_NV_CONFIG">
+            <summary>
+            Command Type : Save Configuration to Non-volatile Memory
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_NXP_CHANGE_CONFIG">
+            <summary>
+            Command Type : Change Config Command for NXP G2X Tags
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_NXP_READPROTECT">
+            <summary>
+            Command Type : ReadProtect Command for NXP G2X Tags
+            Reset ReadProtect Command uses the same command code but with different parameter
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_NXP_RESET_READPROTECT">
+            <summary>
+             Command Type : Reset ReadProtect Command for NXP G2X Tags
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_NXP_CHANGE_EAS">
+            <summary>
+            Command Type : ChangeEAS Command for NXP G2X Tags
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_NXP_EAS_ALARM">
+            <summary>
+            Command Type : EAS_Alarm Command for NXP G2X Tags
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_IPJ_MONZA_QT_READ">
+            <summary>
+            Command Type : QT Read Command for Monza Tags
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_IPJ_MONZA_QT_WRITE">
+            <summary>
+            Command Type : QT Write Command for Monza Tags
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.CMD_EXE_FAILED">
+            <summary>
+            Command Execute Fail Type 
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_INVALID_PARA">
+            <summary>
+            Fail Type : Command Parameter Invalid
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_INVENTORY_TAG_TIMEOUT">
+            <summary>
+            Fail Type : Read Tag ID Time out
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_INVALID_CMD">
+            <summary>
+            Fail Type : Invalid Command
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_FHSS_FAIL">
+            <summary>
+            Fail Type : FHSS Failed
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_ACCESS_PWD_ERROR">
+            <summary>
+            Fail Type : Access Password Error
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_READ_MEMORY_NO_TAG">
+            <summary>
+            Fail Type : Read Tag Memory No Tag Response
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_READ_ERROR_CODE_BASE">
+            <summary>
+            Fail Type : Error Code(defined in C1Gen2 Protocol) Caused By Read Operation.
+            The Error Code Will Be Added to this Code.
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_WRITE_MEMORY_NO_TAG">
+            <summary>
+            Fail Type : Write Tag Memory No Tag Response
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_WRITE_ERROR_CODE_BASE">
+            <summary>
+            Fail Type : Error Code(defined in C1Gen2 Protocol) Caused By Write Operation.
+            The Error Code Will Be Added to this Code.
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_LOCK_NO_TAG">
+            <summary>
+            Fail Type : Lock Tag No Tag Response
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_LOCK_ERROR_CODE_BASE">
+            <summary>
+            Fail Type : Error Code(defined in C1Gen2 Protocol) Caused By Lock Operation.
+            The Error Code Will Be Added to this Code.
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_KILL_NO_TAG">
+            <summary>
+            Fail Type : Kill Tag No Tag Response
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_KILL_ERROR_CODE_BASE">
+            <summary>
+            Fail Type : Error Code(defined in C1Gen2 Protocol) Caused By Kill Operation.
+            The Error Code Will Be Added to this Code.
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_NXP_CHANGE_CONFIG_NO_TAG">
+            <summary>
+            Fail Type : NXP Change Config Command No Tag Response
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_NXP_READPROTECT_NO_TAG">
+            <summary>
+            Fail Type : NXP ReadProtect Command No Tag Response
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_NXP_RESET_READPROTECT_NO_TAG">
+            <summary>
+            Fail Type : NXP Reset ReadProtect Command No Tag Response
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_NXP_CHANGE_EAS_NO_TAG">
+            <summary>
+            Fail Type : NXP Change EAS Command No Tag Response
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_NXP_CHANGE_EAS_NOT_SECURE">
+            <summary>
+            Fail Type : When Executing NXP Change Config Command , Tag is Not in Secure State.
+            NXP tag responses to Change EAS command only in secure state, so the access password must not be 0.
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_NXP_EAS_ALARM_NO_TAG">
+            <summary>
+            Fail Type : NXP EAS Alarm Command No Tag Response
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_IPJ_MONZA_QT_NO_TAG">
+            <summary>
+            Fail Type : QT Read/Write Command No Tag Response
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.FAIL_CUSTOM_CMD_BASE">
+            <summary>
+            Fail Type : Error Code Caused By Custom(NXP tags, Monza QT tags or other tags) Operation.
+            The Error Code Will Be Added to this Code.
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.ERROR_CODE_OTHER_ERROR">
+            <summary>
+            Error Code(according to C1Gen2 Protocol) : Other Error
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.ERROR_CODE_MEM_OVERRUN">
+            <summary>
+            Error Code(according to C1Gen2 Protocol) : Memory Overrun
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.ERROR_CODE_MEM_LOCKED">
+            <summary>
+            Error Code(according to C1Gen2 Protocol) : Memory Locked
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.ERROR_CODE_INSUFFICIENT_POWER">
+            <summary>
+            Error Code(according to C1Gen2 Protocol) : Insufficient Power
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.ERROR_CODE_NON_SPEC_ERROR">
+            <summary>
+            Error Code(according to C1Gen2 Protocol) : Non-specific Error
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.SUCCESS_MSG_DATA">
+            <summary>
+            Success Message Data field
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.REGION_CODE_CHN2">
+            <summary>
+            Region Code : China 2 (920MHz - 925MHz)
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.REGION_CODE_US">
+            <summary>
+            Region Code : US
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.REGION_CODE_EUR">
+            <summary>
+            Region Code : Europe
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.REGION_CODE_CHN1">
+            <summary>
+            Region Code : China 1(840MHz - 845MHz)
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.REGION_CODE_JAPAN">
+            <summary>
+            Region Code : Japan (Not Support Yet)
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.REGION_CODE_KOREA">
+            <summary>
+            Region Code : Korea
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.SET_ON">
+            <summary>
+            Set Function On Indicator
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.SET_OFF">
+            <summary>
+            Set Function Off Indicator
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.INVENTORY_MODE0">
+            <summary>
+            Inventory MODE0, Send Select Command Before Each Tag Command
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.INVENTORY_MODE1">
+            <summary>
+            Inventory MODE1, DoNot Send Select Command Before Each Tag Command
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.INVENTORY_MODE2">
+            <summary>
+            Inventory MODE1, Send Select Command Before Tag Commands(Read, Write, Lock, Kill etc.) Except Inventory
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.MODULE_HARDWARE_VERSION_FIELD">
+            <summary>
+            Get Module Information Type : Hardware Version
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.MODULE_SOFTWARE_VERSION_FIELD">
+            <summary>
+            Get Module Information Type : Software Version
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.MODULE_MANUFACTURE_INFO_FIELD">
+            <summary>
+            Get Module Information Type : Manufacture Information
+            </summary>
+        </member>
+        <member name="T:RFID_Reader_Cmds.ConstCode.NVconfig">
+            <summary>
+            NV Memory Configuration 
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.NVconfig.NVenable">
+            <summary>
+            Enable NV Configuration. The Reader Will Load the Configuration when Next Power-up.
+            </summary>
+        </member>
+        <member name="F:RFID_Reader_Cmds.ConstCode.NVconfig.NVdisable">
+            <summary>
+            Disable NV Configuration. This Setting Will Erase the Exist Configuration!
+            </summary>
+        </member>
+    </members>
+</doc>
