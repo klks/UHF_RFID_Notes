@@ -1,5 +1,6 @@
 # Table of Contents
 1. [LJYZN-105](#ljyzn-105)
+1. [BY-RFID105](#by-rfid105)
 1. [YRM100 / MagicRF (Q)M100](#yrm100--magicrf-qm100)
 1. [ES-F3105U / UCM601](#es-f3105u--ucm601)
 1. [YPD-R200](#ypd-r200)
@@ -36,6 +37,35 @@
 | NXP Config | Yes |
 | NXP EAS | Yes |
 | NXP Read Protect | Yes |
+| SM7 | No |
+| Fudan GB Encryption | No |
+
+# BY-RFID105
+# Reader Image
+<img src="./imgs/READERS/BY-RFID105-1.jpg" alt="drawing" width="400"><br>
+<img src="./imgs/READERS/BY-RFID105-2.jpg" alt="drawing" width="400"><br>
+<img src="./imgs/READERS/BY-RFID105-3.jpg" alt="drawing" width="400"><br>
+
+## Software Image
+<img src="./imgs/READERS/BY-RFID105-Software-1.png" width="400"><br>
+
+
+## SDK
+- [SDK](./SDKs/BY-RFID105/)
+
+## Notes
+- Uses the same protocol and software as LJYZN-105
+- Firmware reports as v2.31
+- Known limitations
+  - Unable to write PC Flags UMI and Toggle
+  - Does not implement the MonzaQT commands
+
+| Custom Tag Features | Supported |
+| --- | :---: |
+| MonzaQT | No |
+| NXP Config | ??? |
+| NXP EAS | ??? |
+| NXP Read Protect | ??? |
 | SM7 | No |
 | Fudan GB Encryption | No |
 
