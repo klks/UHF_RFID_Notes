@@ -59,6 +59,7 @@
 - Known limitations
   - Unable to write PC Flags UMI and Toggle
   - Does not implement the MonzaQT commands
+  - Does not support ISO18000-6B cards
 
 | Custom Tag Features | Supported |
 | --- | :---: |
