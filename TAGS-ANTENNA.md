@@ -243,8 +243,7 @@ Notes :
 ---
 <br>
 
-<img src="./imgs/TAGS/Kiloway-KX2005X-BL-1.jpg" width="400">
-<img src="./imgs/TAGS/Kiloway-KX2005X-BL-2.jpg" width="400"><br>
+<img src="./imgs/TAGS/Kiloway-KX2005X-BL-1.jpg" width="400"><br>
 MDID / TMN : 01D / 016 (KX2005X-BL)<br>
 Notes :
 
@@ -254,6 +253,21 @@ Notes :
 - Tag has a unique property on tag where once a bit is flipped on, it cannot be turned off. The company calls this OTP Memory
 - Tag has an LED that can be triggered by reading WORD 4 of RFU
 - If you perform a single read on the EPC, it will return data up to 140 Words, single word reads will not go past 128 words
+
+---
+<br>
+
+<img src="./imgs/TAGS/Kiloway-KX2005X-BL-2.jpg" width="400"><br>
+MDID / TMN : 01D / 211 (KX2005XB-L/T)<br>
+Notes :
+
+- TID : 12 Words
+- EPC : 128 Words
+- USER : 88 Words
+- Tag has a unique property on tag where once a bit is flipped on, it cannot be turned off. The company calls this OTP Memory
+- Tag has an LED that can be triggered by reading WORD 4 of RFU
+- If you perform a single read on the EPC, it will return data up to 140 Words, single word reads will not go past 128 words
+
 
 ## Other Special Tags
 <img src="./imgs/TAGS/Other-Special-1.jpg" width="400"><br>
