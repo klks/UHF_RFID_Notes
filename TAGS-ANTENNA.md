@@ -85,7 +85,8 @@ Notes :
 <img src="./imgs/TAGS/Impinj-Monza4QT-3.jpg" width="400">
 <img src="./imgs/TAGS/Impinj-Monza4QT-4.jpg" width="400">
 <img src="./imgs/TAGS/Impinj-Monza4QT-5.jpg" width="400">
-<img src="./imgs/TAGS/Impinj-Monza4QT-6.jpg" width="400"><br>
+<img src="./imgs/TAGS/Impinj-Monza4QT-6.jpg" width="400">
+<img src="./imgs/TAGS/Impinj-Monza4QT-7.jpg" width="400"><br>
 MDID / TMN : 001 / 105 (Monza 4QT)<br>
 Notes :
 
@@ -242,7 +243,8 @@ Notes :
 ---
 <br>
 
-<img src="./imgs/TAGS/Kiloway-KX2005X-BL-1.jpg" width="400"><br>
+<img src="./imgs/TAGS/Kiloway-KX2005X-BL-1.jpg" width="400">
+<img src="./imgs/TAGS/Kiloway-KX2005X-BL-2.jpg" width="400"><br>
 MDID / TMN : 01D / 016 (KX2005X-BL)<br>
 Notes :
 
