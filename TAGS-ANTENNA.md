@@ -46,7 +46,8 @@ Notes :
 
 <img src="./imgs/TAGS/Alien-H9-1.jpg" width="400">
 <img src="./imgs/TAGS/Alien-H9-2.jpg" width="400">
-<img src="./imgs/TAGS/Alien-H9-3.jpg" width="400"><br>
+<img src="./imgs/TAGS/Alien-H9-3.jpg" width="400">
+<img src="./imgs/TAGS/Alien-H9-4.jpg" width="400"><br>
 MDID / TMN : 003 / 821 (Higgs 9)<br>
 Notes :
 
@@ -86,7 +87,8 @@ Notes :
 <img src="./imgs/TAGS/Impinj-Monza4QT-4.jpg" width="400">
 <img src="./imgs/TAGS/Impinj-Monza4QT-5.jpg" width="400">
 <img src="./imgs/TAGS/Impinj-Monza4QT-6.jpg" width="400">
-<img src="./imgs/TAGS/Impinj-Monza4QT-7.jpg" width="400"><br>
+<img src="./imgs/TAGS/Impinj-Monza4QT-7.jpg" width="400">
+<img src="./imgs/TAGS/Impinj-Monza4QT-8.jpg" width="400"><br>
 MDID / TMN : 001 / 105 (Monza 4QT)<br>
 Notes :
 
@@ -181,7 +183,10 @@ Notes :
 <br>
 
 <img src="./imgs/TAGS/NXP-915-1.jpg" width="400">
-<img src="./imgs/TAGS/NXP-915-2.jpg" width="400"><br>
+<img src="./imgs/TAGS/NXP-915-2.jpg" width="400">
+<img src="./imgs/TAGS/NXP-915-3.jpg" width="400">
+<img src="./imgs/TAGS/NXP-915-4.jpg" width="400">
+<img src="./imgs/TAGS/NXP-915-5.jpg" width="400"><br>
 MDID / TMN : 006 / 915<br>
 Notes :
 
