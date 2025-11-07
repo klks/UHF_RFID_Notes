@@ -6,6 +6,7 @@
 1. [YPD-R200](#ypd-r200)
 1. [FM-5XX](#fm-5xx)
 1. [CHAFON CF601](#chafon-cf601)
+1. [R800X](#r800x)
 1. [WYUAN T50 UHF](#wyuan-t50-uhf-usb-c-keyboard-emulator)
 
 # LJYZN-105
@@ -200,6 +201,22 @@
 | NXP Read Protect | ??? |
 | SM7 | No |
 | Fudan GB Encryption | ??? |
+
+# R800X
+## Reader Image
+<img src="./imgs/READERS/R800X-1.jpg" width="400">
+<img src="./imgs/READERS/R800X-2.jpg" width="400">
+
+## Software Image
+<img src="./imgs/READERS/R800X-Software-1.png" width="400"><br>
+<img src="./imgs/READERS/R800X-Software-2.png" width="400"><br>
+
+## SDK
+- [SDK](./SDKs/RX800X/)
+
+## Notes
+- Serial protocol starts with 'RF'
+- Has HID and serial interface
 
 # WYUAN T50 UHF (USB-C Keyboard Emulator)
 ## Reader Image
