@@ -217,6 +217,11 @@
 ## Notes
 - Serial protocol starts with 'RF'
 - Has HID and serial interface
+- Also sold as
+  - YZ-Z1
+  - BYH-206
+  - CPH-F206
+  - TC-C206
 
 # WYUAN T50 UHF (USB-C Keyboard Emulator)
 ## Reader Image
