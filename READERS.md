@@ -7,6 +7,7 @@
 1. [FM-5XX](#fm-5xx)
 1. [CHAFON CF601](#chafon-cf601)
 1. [R800X](#r800x)
+1. [SR360](#sr360)
 1. [WYUAN T50 UHF](#wyuan-t50-uhf-usb-c-keyboard-emulator)
 
 # LJYZN-105
@@ -222,6 +223,31 @@
   - BYH-206
   - CPH-F206
   - TC-C206
+
+# SR360
+## Reader Image
+### SR360 Reader
+<img src="./imgs/READERS/YANZEO-SR360-1.png" width="400">
+<img src="./imgs/READERS/YANZEO-SR360-2.png" width="400">
+<img src="./imgs/READERS/YANZEO-SR360-3.png" width="400">
+<img src="./imgs/READERS/YANZEO-SR360-4.png" width="400">
+
+### R17 Reader
+<img src="./imgs/READERS/R17B-1.png" width="400">
+<img src="./imgs/READERS/R17B-2.png" width="400">
+
+## Software Image
+<img src="./imgs/READERS/YANZEO-SR360-Software-1.png" width="400">
+<img src="./imgs/READERS/YANZEO-SR360-Software-2.png" width="400">
+<img src="./imgs/READERS/YANZEO-SR360-Software-3.png" width="400">
+
+## SDK
+- [SDK](./SDKs/R360/)
+## Notes
+- Credits to Sam from Iceman Discord for sharing the reader images above
+- Uses the MagicRF M100 chip
+- Also sold as
+  - R17-(A/B/C/D)
 
 # WYUAN T50 UHF (USB-C Keyboard Emulator)
 ## Reader Image
