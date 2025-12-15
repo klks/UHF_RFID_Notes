@@ -241,10 +241,16 @@
 <img src="./imgs/READERS/YANZEO-SR360-Software-2.png" width="400">
 <img src="./imgs/READERS/YANZEO-SR360-Software-3.png" width="400">
 
+## Website
+- [Yanzeo](https://www.yanzeo.com/yanzeo-sr360-865mhz-915mhz-desktop-uhf-rfid-card-reader-with-keyboard-emulation-output-access-control-system-pos.html)
+- [Sycreader](https://www.sycreader.com/en/3131/)
+
 ## SDK
 - [SDK](./SDKs/R360/)
+- https://www.sycreader.com/en/services-support/sdk/
+
 ## Notes
-- Credits to Sam from Iceman Discord for sharing the reader images above
+- Credits to [Sam](https://github.com/Ba11istix) from Iceman Discord for sharing the reader images above
 - Uses the MagicRF M100 chip
 - Also sold as
   - R17-(A/B/C/D)
